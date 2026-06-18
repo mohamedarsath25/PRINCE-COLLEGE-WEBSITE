@@ -70,7 +70,7 @@ nav{
 }
 .hero-img-overlay{
   position:absolute;inset:0;
-  background:url('/mnt/user-data/uploads/img2.jpg') center/cover no-repeat;
+  background:url('img2.jpg') center/cover no-repeat;
   opacity:0.08;
 }
 .hero-content{
@@ -221,36 +221,53 @@ tr:hover td{background:rgba(200,148,42,0.06);}
 
 /* ─── FACILITIES ─── */
 .facilities{background:var(--white);}
-.facilities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;}
+.facilities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;}
 .facility-card{
   text-align:center;padding:36px 24px;border-radius:var(--radius);
   border:1px solid #E5E7EB;transition:all 0.3s;cursor:default;background:var(--white);
 }
 .facility-card:hover{
-  transform:scale(1.05);box-shadow:0 12px 40px rgba(11,31,78,0.14);
+  transform:scale(1.04);box-shadow:0 12px 40px rgba(11,31,78,0.14);
   background:var(--navy);color:var(--white);border-color:var(--navy);
 }
 .facility-icon{font-size:2.4rem;margin-bottom:14px;transition:transform 0.3s;}
 .facility-card:hover .facility-icon{transform:scale(1.15);}
-.facility-card h4{font-size:1rem;color:var(--navy);margin-bottom:8px;font-family:'Cormorant Garamond',serif;font-size:1.15rem;transition:color 0.3s;}
+.facility-card h4{font-size:1.15rem;color:var(--navy);margin-bottom:8px;font-family:'Cormorant Garamond',serif;transition:color 0.3s;}
 .facility-card:hover h4{color:var(--gold-light);}
 .facility-card p{font-size:0.8rem;color:var(--gray);line-height:1.55;transition:color 0.3s;}
 .facility-card:hover p{color:rgba(255,255,255,0.75);}
+
+/* ─── FACILITY CARDS WITH PHOTO ─── */
+.facility-has-img{
+  padding:0;overflow:hidden;text-align:left;
+}
+.facility-img-wrap{overflow:hidden;border-radius:var(--radius) var(--radius) 0 0;}
+.facility-photo{
+  width:100%;height:160px;object-fit:cover;display:block;
+  transition:transform 0.4s;
+}
+.facility-has-img:hover .facility-photo{transform:scale(1.06);}
+.facility-has-img .facility-icon,
+.facility-has-img h4,
+.facility-has-img p{padding-left:20px;padding-right:20px;}
+.facility-has-img .facility-icon{margin-top:16px;}
+.facility-has-img h4{text-align:left;}
+.facility-has-img p{padding-bottom:20px;text-align:left;}
 
 /* ─── GALLERY ─── */
 .gallery{background:var(--cream);}
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  grid-template-rows:auto;
+  grid-auto-rows:220px;
   gap:14px;
 }
 .gallery-item{
   overflow:hidden;border-radius:10px;cursor:pointer;
-  position:relative;aspect-ratio:4/3;background:#e5e7eb;
+  position:relative;background:#e5e7eb;
 }
-.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1;}
-.gallery-item:nth-child(5){grid-column:span 2;}
+.gallery-item:nth-child(1){grid-column:span 2;grid-row:span 2;}
+.gallery-item:nth-child(4){grid-column:span 2;}
 .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
 .gallery-item:hover img{transform:scale(1.06);}
 .gallery-overlay{
@@ -272,7 +289,11 @@ tr:hover td{background:rgba(200,148,42,0.06);}
 .lb-nav:hover{background:rgba(255,255,255,0.3);}
 .lb-prev{left:16px;}
 .lb-next{right:16px;}
-@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-item:nth-child(1){grid-column:span 2;}.gallery-item:nth-child(5){grid-column:span 1;}}
+@media(max-width:768px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px;}
+  .gallery-item:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  .gallery-item:nth-child(4){grid-column:span 2;}
+}
 
 /* ─── RECRUITERS ─── */
 .recruiters{background:var(--white);}
@@ -625,16 +646,96 @@ footer ul a:hover{color:var(--gold-light);}
     <p class="section-sub">A 18.9-acre campus equipped with everything students need to learn, grow, and thrive.</p>
   </div>
   <div class="facilities-grid">
-    <div class="facility-card reveal"><div class="facility-icon">📚</div><h4>Central Library</h4><p>Extensive collection of books, journals, e-resources, and a quiet study environment for deep research.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🖥️</div><h4>Computer Labs</h4><p>High-speed systems with latest software tools, internet access, and 24×7 availability for project work.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">⚗️</div><h4>Research Labs</h4><p>State-of-the-art laboratories for Electronics, Mechanics, Biomedical, and AI experiments.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🏠</div><h4>Hostel</h4><p>Safe and comfortable on-campus hostel facilities for outstation students, with 24×7 security.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🍽️</div><h4>Cafeteria</h4><p>Hygienic, affordable, and nutritious meals served throughout the day for students and staff.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">📶</div><h4>Campus Wi-Fi</h4><p>High-speed internet connectivity across the entire campus for seamless digital learning.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🏟️</div><h4>Sports Grounds</h4><p>Multi-sport playgrounds promoting physical fitness, team spirit, and extracurricular achievement.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🏥</div><h4>Medical Assistance</h4><p>Basic medical facility on campus ensuring student health and emergency care readiness.</p></div>
-    <div class="facility-card reveal"><div class="facility-icon">🎭</div><h4>Auditorium</h4><p>Large auditorium for conferences, seminars, cultural events, and inter-college competitions.</p></div>
+
+    <!-- Library -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="Library1.jpg" alt="Central Library">
   </div>
+  <div class="facility-icon">📚</div>
+  <h4>Central Library</h4>
+  <p>Extensive collection of books, journals, e-resources, and a quiet study environment for deep research.</p>
+</div>
+
+<!-- Computer Lab -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="computer lab.png" alt="Computer Lab">
+  </div>
+  <div class="facility-icon">🖥️</div>
+  <h4>Computer Labs</h4>
+  <p>High-speed systems with latest software tools, internet access, and 24×7 availability for project work.</p>
+</div>
+
+<!-- Research Lab -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="rese.png" alt="Research Lab">
+  </div>
+  <div class="facility-icon">⚗️</div>
+  <h4>Research Labs</h4>
+  <p>State-of-the-art laboratories for Electronics, Mechanics, Biomedical, and AI experiments.</p>
+</div>
+
+<!-- Hostel -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="hostel.png"Hostel">
+  </div>
+  <div class="facility-icon">🏠</div>
+  <h4>Hostel</h4>
+  <p>Safe, comfortable on-campus hostel with 24×7 security and high-speed Wi-Fi.</p>
+</div>
+
+<!-- Cafeteria -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="cafe.png" alt="Cafeteria">
+  </div>
+  <div class="facility-icon">🍽️</div>
+  <h4>Cafeteria</h4>
+  <p>Hygienic, affordable, and nutritious meals served throughout the day.</p>
+</div>
+
+<!-- Campus WiFi -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="wifi.png" alt="Campus WiFi">
+  </div>
+  <div class="facility-icon">📶</div>
+  <h4>Campus Wi-Fi</h4>
+  <p>High-speed internet connectivity across the entire campus.</p>
+</div>
+
+<!-- Sports Ground -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="sports.png" alt="Sports Ground">
+  </div>
+  <div class="facility-icon">🏏</div>
+  <h4>Sports Ground</h4>
+  <p>Modern facilities for cricket, football, volleyball, and athletics.</p>
+</div>
+
+<!-- Medical Assistance -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="medical.png" alt="Medical Assistance">
+  </div>
+  <div class="facility-icon">🏥</div>
+  <h4>Medical Assistance</h4>
+  <p>24×7 healthcare support with qualified medical professionals.</p>
+</div>
+
+<!-- Auditorium -->
+<div class="facility-card reveal facility-has-img">
+  <div class="facility-img-wrap">
+    <img src="audi.png" alt="Auditorium">
+  </div>
+  <div class="facility-icon">🎭</div>
+  <h4>Auditorium</h4>
+  <p>Spacious auditorium for seminars, workshops, cultural events, and conferences.</p>
+</div>
 </section>
 
 <!-- GALLERY -->
@@ -646,11 +747,15 @@ footer ul a:hover{color:var(--gold-light);}
     <p class="section-sub">A glimpse of our beautiful campus — where learning meets inspiration.</p>
   </div>
   <div class="gallery-grid reveal" id="galleryGrid">
+    <!-- Item 1: Large hero image (span 2 cols x 2 rows) -->
     <div class="gallery-item" data-index="0"><img src="img1.jpg" alt="Campus Building"><div class="gallery-overlay"><span>🔍</span></div></div>
+    <!-- Items 2 & 3: Right top, stacked -->
     <div class="gallery-item" data-index="1"><img src="img3.jpg" alt="Main Block"><div class="gallery-overlay"><span>🔍</span></div></div>
-    <div class="gallery-item" data-index="2"><img src="img9.jpg" alt="Workshop"><div class="gallery-overlay"><span>🔍</span></div></div>
-    <div class="gallery-item" data-index="3"><img src="img5.jpg" alt="Academic Block"><div class="gallery-overlay"><span>🔍</span></div></div>
-    <div class="gallery-item" data-index="4"><img src="img4.jpg" alt="Campus View"><div class="gallery-overlay"><span>🔍</span></div></div>
+    <div class="gallery-item" data-index="2"><img src="img5.jpg" alt="Academic Block"><div class="gallery-overlay"><span>🔍</span></div></div>
+    <!-- Item 4: Wide (span 2) -->
+    <div class="gallery-item" data-index="3"><img src="img4.jpg" alt="Campus View"><div class="gallery-overlay"><span>🔍</span></div></div>
+    <!-- Items 5, 6, 7, 8: Bottom row -->
+    <div class="gallery-item" data-index="4"><img src="img9.jpg" alt="Workshop"><div class="gallery-overlay"><span>🔍</span></div></div>
     <div class="gallery-item" data-index="5"><img src="img6.jpg" alt="Greenery"><div class="gallery-overlay"><span>🔍</span></div></div>
     <div class="gallery-item" data-index="6"><img src="img10.jpg" alt="Entrance"><div class="gallery-overlay"><span>🔍</span></div></div>
     <div class="gallery-item" data-index="7"><img src="img8.jpg" alt="Campus Aerial"><div class="gallery-overlay"><span>🔍</span></div></div>
@@ -674,44 +779,42 @@ footer ul a:hover{color:var(--gold-light);}
     <p class="section-sub">Leading companies across IT, manufacturing, and consulting recruit directly from our campus. Packages ranging from ₹3–24 LPA.</p>
   </div>
   <div class="recruiter-logos reveal">
-    <div class="recruiter-logo-wrap"><img src="Amazon.png" alt="Recruiter 1"></div>
-<div class="recruiter-logo-wrap"><img src="Cognizant.png" alt="Recruiter 2"></div>
-<div class="recruiter-logo-wrap"><img src="Zoho.png" alt="Recruiter 3"></div>
-<div class="recruiter-logo-wrap"><img src="HCL.png" alt="Recruiter 4"></div>
-<div class="recruiter-logo-wrap"><img src="Aspire_Systems.png" alt="Recruiter 5"></div>
-<div class="recruiter-logo-wrap"><img src="Avasoft.png" alt="Recruiter 6"></div>
-<div class="recruiter-logo-wrap"><img src="BPMLinks.png" alt="Recruiter 7"></div>
-<div class="recruiter-logo-wrap"><img src="BYJUS.png" alt="Recruiter 8"></div>
-<div class="recruiter-logo-wrap"><img src="DXC_Technology.png" alt="Recruiter 9"></div>
-<div class="recruiter-logo-wrap"><img src="CEI.png" alt="Recruiter 10"></div>
-<div class="recruiter-logo-wrap"><img src="CMS.png" alt="Recruiter 11"></div>
-<div class="recruiter-logo-wrap"><img src="Infosys.png" alt="Recruiter 12"></div>
-<div class="recruiter-logo-wrap"><img src="Wipro.png" alt="Recruiter 13"></div>
-<div class="recruiter-logo-wrap"><img src="Emerson.png" alt="Recruiter 14"></div>
-<div class="recruiter-logo-wrap"><img src="Ideas2IT.png" alt="Recruiter 15"></div>
-<div class="recruiter-logo-wrap"><img src="Flextronics.png" alt="Recruiter 16"></div>
-<div class="recruiter-logo-wrap"><img src="Excelacom.png" alt="Recruiter 17"></div>
-<div class="recruiter-logo-wrap"><img src="IBM.png" alt="Recruiter 18"></div>
-<div class="recruiter-logo-wrap"><img src="FACE.png" alt="Recruiter 19"></div>
-<div class="recruiter-logo-wrap"><img src="iLink_Digital.png" alt="Recruiter 20"></div>
-<div class="recruiter-logo-wrap"><img src="Jasmin_Infotech.png" alt="Recruiter 21"></div>
-<div class="recruiter-logo-wrap"><img src="Atos_Syntel.png" alt="Recruiter 22"></div>
-<div class="recruiter-logo-wrap"><img src="Capgemini.png" alt="Recruiter 23"></div>
-<div class="recruiter-logo-wrap"><img src="LTI.png" alt="Recruiter 24"></div>
-<div class="recruiter-logo-wrap"><img src="Mitsogo.png" alt="Recruiter 25"></div>
-<div class="recruiter-logo-wrap"><img src="Mindtree.png" alt="Recruiter 26"></div>
-<div class="recruiter-logo-wrap"><img src="NTT_Data.png" alt="Recruiter 27"></div>
-<div class="recruiter-logo-wrap"><img src="Opex_Technologies.png" alt="Recruiter 28"></div>
-<div class="recruiter-logo-wrap"><img src="Octoze.png" alt="Recruiter 29"></div>
-<div class="recruiter-logo-wrap"><img src="TeamLease.png" alt="Recruiter 30"></div>
-<div class="recruiter-logo-wrap"><img src="ThinkInnov_Solution.png" alt="Recruiter 31"></div>
-<div class="recruiter-logo-wrap"><img src="Mphasis.png" alt="Recruiter 32"></div>
-<div class="recruiter-logo-wrap"><img src="Sensiple.png" alt="Recruiter 33"></div>
-<div class="recruiter-logo-wrap"><img src="Sutherland.png" alt="Recruiter 34"></div>
-<div class="recruiter-logo-wrap"><img src="Sanmina.png" alt="Recruiter 35"></div>
-<div class="recruiter-logo-wrap"><img src="Syntel.png" alt="Recruiter 36"></div>
-   
-    
+    <div class="recruiter-logo-wrap"><img src="Amazon.png" alt="Amazon"></div>
+    <div class="recruiter-logo-wrap"><img src="Cognizant.png" alt="Cognizant"></div>
+    <div class="recruiter-logo-wrap"><img src="Zoho.png" alt="Zoho"></div>
+    <div class="recruiter-logo-wrap"><img src="HCL.png" alt="HCL"></div>
+    <div class="recruiter-logo-wrap"><img src="Aspire_Systems.png" alt="Aspire Systems"></div>
+    <div class="recruiter-logo-wrap"><img src="Avasoft.png" alt="Avasoft"></div>
+    <div class="recruiter-logo-wrap"><img src="BPMLinks.png" alt="BPMLinks"></div>
+    <div class="recruiter-logo-wrap"><img src="BYJUS.png" alt="BYJUS"></div>
+    <div class="recruiter-logo-wrap"><img src="DXC_Technology.png" alt="DXC Technology"></div>
+    <div class="recruiter-logo-wrap"><img src="CEI.png" alt="CEI"></div>
+    <div class="recruiter-logo-wrap"><img src="CMS.png" alt="CMS"></div>
+    <div class="recruiter-logo-wrap"><img src="Infosys.png" alt="Infosys"></div>
+    <div class="recruiter-logo-wrap"><img src="Wipro.png" alt="Wipro"></div>
+    <div class="recruiter-logo-wrap"><img src="Emerson.png" alt="Emerson"></div>
+    <div class="recruiter-logo-wrap"><img src="Ideas2IT.png" alt="Ideas2IT"></div>
+    <div class="recruiter-logo-wrap"><img src="Flextronics.png" alt="Flextronics"></div>
+    <div class="recruiter-logo-wrap"><img src="Excelacom.png" alt="Excelacom"></div>
+    <div class="recruiter-logo-wrap"><img src="IBM.png" alt="IBM"></div>
+    <div class="recruiter-logo-wrap"><img src="FACE.png" alt="FACE"></div>
+    <div class="recruiter-logo-wrap"><img src="iLink_Digital.png" alt="iLink Digital"></div>
+    <div class="recruiter-logo-wrap"><img src="Jasmin_Infotech.png" alt="Jasmin Infotech"></div>
+    <div class="recruiter-logo-wrap"><img src="Atos_Syntel.png" alt="Atos Syntel"></div>
+    <div class="recruiter-logo-wrap"><img src="Capgemini.png" alt="Capgemini"></div>
+    <div class="recruiter-logo-wrap"><img src="LTI.png" alt="LTI"></div>
+    <div class="recruiter-logo-wrap"><img src="Mitsogo.png" alt="Mitsogo"></div>
+    <div class="recruiter-logo-wrap"><img src="Mindtree.png" alt="Mindtree"></div>
+    <div class="recruiter-logo-wrap"><img src="NTT_Data.png" alt="NTT Data"></div>
+    <div class="recruiter-logo-wrap"><img src="Opex_Technologies.png" alt="Opex Technologies"></div>
+    <div class="recruiter-logo-wrap"><img src="Octoze.png" alt="Octoze"></div>
+    <div class="recruiter-logo-wrap"><img src="TeamLease.png" alt="TeamLease"></div>
+    <div class="recruiter-logo-wrap"><img src="ThinkInnov_Solution.png" alt="ThinkInnov Solution"></div>
+    <div class="recruiter-logo-wrap"><img src="Mphasis.png" alt="Mphasis"></div>
+    <div class="recruiter-logo-wrap"><img src="Sensiple.png" alt="Sensiple"></div>
+    <div class="recruiter-logo-wrap"><img src="Sutherland.png" alt="Sutherland"></div>
+    <div class="recruiter-logo-wrap"><img src="Sanmina.png" alt="Sanmina"></div>
+    <div class="recruiter-logo-wrap"><img src="Syntel.png" alt="Syntel"></div>
   </div>
   <div style="margin-top:40px;background:linear-gradient(135deg,var(--navy),#1a3a7a);border-radius:var(--radius);padding:36px 40px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:space-around;" class="reveal">
     <div style="text-align:center;color:var(--white);">
@@ -808,7 +911,7 @@ footer ul a:hover{color:var(--gold-light);}
     <div class="footer-brand">
       <img src="collegenamemob.png" alt="PDKVCET" style="height:44px;object-fit:contain;margin-bottom:12px;">
       <p>Prince Dr. K. Vasudevan College of Engineering and Technology — nurturing tomorrow's innovators since 2009.</p>
-      <div style="display:flex;gap:12px;margin-top:16px;">
+      <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;">
         <span style="background:rgba(200,148,42,0.2);color:var(--gold-light);padding:4px 10px;border-radius:4px;font-size:0.74rem;font-weight:600;">AICTE</span>
         <span style="background:rgba(200,148,42,0.2);color:var(--gold-light);padding:4px 10px;border-radius:4px;font-size:0.74rem;font-weight:600;">Anna University</span>
         <span style="background:rgba(200,148,42,0.2);color:var(--gold-light);padding:4px 10px;border-radius:4px;font-size:0.74rem;font-weight:600;">NAAC A+</span>
@@ -955,17 +1058,39 @@ document.getElementById('lightbox').addEventListener('click', e => { if(e.target
 // ─── MODAL ───
 function openModal(){ document.getElementById('applyModal').classList.add('open'); }
 function closeModal(){ document.getElementById('applyModal').classList.remove('open'); }
-function submitModal(){
-  const fname=document.getElementById('mFname').value.trim();
-  const lname=document.getElementById('mLname').value.trim();
-  const email=document.getElementById('mEmail').value.trim();
-  const phone=document.getElementById('mPhone').value.trim();
-  const prog=document.getElementById('mProgram').value;
-  const errEl=document.getElementById('mErr');
-  if(!fname||!lname||!email||!phone||!prog){ errEl.style.display='block'; return; }
-  errEl.style.display='none';
-  document.getElementById('mSuccess').style.display='block';
-  setTimeout(closeModal, 2500);
+function submitModal() {
+
+  const fname = document.getElementById("mFname").value.trim();
+  const lname = document.getElementById("mLname").value.trim();
+  const email = document.getElementById("mEmail").value.trim();
+  const phone = document.getElementById("mPhone").value.trim();
+  const program = document.getElementById("mProgram").value;
+
+  if (!fname || !lname || !email || !phone || !program) {
+    document.getElementById("mErr").style.display = "block";
+    return;
+  }
+
+  emailjs.send(
+    "service_6pzn09j",
+    "template_contact",
+    {
+      form_type: "Course Application",
+      name: fname + " " + lname,
+      email: email,
+      phone: phone,
+      course_name: program,
+      subject: "Admission Application",
+      message: "Student applied through website"
+    }
+  )
+  .then(() => {
+    document.getElementById("mSuccess").style.display = "block";
+  })
+  .catch((error) => {
+    console.log(error);
+    alert("Failed to send application");
+  });
 }
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 
@@ -990,6 +1115,19 @@ window.addEventListener('scroll',()=>{ document.getElementById('back-top').class
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').style.boxShadow = window.scrollY > 30 ? '0 4px 24px rgba(11,31,78,0.14)' : '0 2px 12px rgba(11,31,78,0.10)';
 });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init({
+    publicKey: "666AHlxjkUGLmzTU-"
+});
+
+const SERVICE_ID = "service_6pzn09j";
+const TEMPLATE_ID = "template_contact";
+</script>
+
+
 </script>
 </body>
 </html>
