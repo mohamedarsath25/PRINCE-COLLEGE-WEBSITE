@@ -1095,17 +1095,36 @@ function submitModal() {
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 
 // ─── CONTACT FORM ───
-function submitContact(){
-  let valid=true;
-  const fields=[['cName','cNameErr'],['cEmail','cEmailErr'],['cSubject','cSubjectErr'],['cMsg','cMsgErr']];
-  fields.forEach(([id,errId])=>{
-    const val=document.getElementById(id).value.trim();
-    const err=document.getElementById(errId);
-    if(!val){ err.style.display='block'; valid=false; } else { err.style.display='none'; }
+function submitContact() {
+  const name = document.getElementById("cName").value.trim();
+  const email = document.getElementById("cEmail").value.trim();
+  const subject = document.getElementById("cSubject").value.trim();
+  const message = document.getElementById("cMsg").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  emailjs.send(
+    "service_6pzn09j",
+    "template_contact",
+    {
+      form_type: "Contact Form",
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    }
+  )
+  .then(() => {
+    document.getElementById("contactForm").style.display = "none";
+    document.getElementById("contactSuccess").style.display = "block";
+  })
+  .catch((error) => {
+    console.log(error);
+    alert("Failed to send message");
   });
-  if(!valid) return;
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('contactSuccess').style.display='block';
 }
 
 // ─── BACK TO TOP ───
